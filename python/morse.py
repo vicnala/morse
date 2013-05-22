@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 A full featured morse encoder/decoder
 ©2012 vicnala@gmail.com
@@ -32,15 +33,15 @@ morse = { 'A': '.-',
           'Z': '--..',
           ' ': ' ',
           }
+while True:
+    string = raw_input("Enter strings [aB] or morse code with spaces [... ---]: ")
 
-string = raw_input("Enter strings or morse code: ")
-
-if set(string.upper()).issubset(morse):
-    print "".join([morse[c.upper()] for c in string])
-else:
-    if set(string.split()).issubset(morse.values()):
-        print "".join([dict(zip(morse.values(), 
-            morse.keys()))[c] for c in string.split()])
+    if set(string.upper()).issubset(morse):
+        print "".join([morse[c.upper()] for c in string])
     else:
-        print 'Sorry, can not process your string!'
+        if set(string.split()).issubset(morse.values()):
+            print "".join([dict(zip(morse.values(), 
+                morse.keys()))[c] for c in string.split()])
+        else:
+            print 'Sorry, can not process your string!'
 
